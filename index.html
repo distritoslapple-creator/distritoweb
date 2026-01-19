@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Privacy | Distrito SLU</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        tech: {
+                            dark: '#0f172a',    // Slate 900
+                            card: '#1e293b',    // Slate 800
+                            accent: '#3b82f6',  // Blue 500
+                            glow: '#60a5fa',    // Blue 400
+                            text: '#e2e8f0'     // Slate 200
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        .glass-input {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: white;
+        }
+        .glass-input:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Hide scrollbar for modal */
+        .modal-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white relative">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 glass-panel border-b border-slate-700/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl tracking-tight text-white">Distrito<span class="text-blue-500"> SLU</span></span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">About Us</a>
+                        <a href="#contact" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact Us</a>
+                        <!-- Legal Links in Header -->
+                        <span class="text-slate-600">|</span>
+                        <button onclick="openLegalModal('privacy')" class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Privacy Policy</button>
+                        <button onclick="openLegalModal('terms')" class="text-slate-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Terms</button>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button (Optional placeholder) -->
+                <div class="md:hidden">
+                    <button class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-20 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Removed Independent iOS Development Badge -->
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white">
+                    Experiences <br class="hidden md:block" />
+                    <span class="gradient-text">Simple & Secure</span>
+                </h1>
+                <p class="mt-4 text-xl text-slate-400 max-w-2xl mx-auto">
+                    Crafting native applications for the Apple ecosystem with a focus on user privacy, performance, and minimalist design.
+                </p>
+            </div>
+        </section>
+
+        <!-- About Us Section (Formerly Tech Stack) -->
+        <section id="about" class="py-16 bg-slate-900/50 relative overflow-hidden">
+            <!-- Background decorative elements -->
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+            
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">About Us</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="glass-panel p-8 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-server text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">No Proprietary Servers</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Our apps run locally on your device. We do not maintain databases where we store your personal information, photos, or contacts.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="glass-panel p-8 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-shield-halved text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Apple Security</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            All payment and subscription management is processed directly through the Apple App Store, ensuring the highest level of banking security.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="glass-panel p-8 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
+                        <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-code text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Integrations</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            We use industry-leading tools like Firebase and RevenueCat to ensure app stability and manage premium features securely.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="py-20 px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4">Contact Us</h2>
+                <p class="text-slate-400 text-center mb-10">Have a question or feedback? We'd love to hear from you.</p>
+
+                <div class="glass-panel rounded-2xl p-8 md:p-10 shadow-2xl">
+                    <form action="mailto:support@example.com" method="POST" enctype="text/plain" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                                <input type="text" id="name" name="name" class="w-full glass-input rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 transition-all" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full glass-input rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 transition-all" placeholder="john@apple.com" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full glass-input rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 transition-all" placeholder="How can we help you?" required></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-blue-500/30 transition-all transform hover:scale-105">
+                                Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900 pt-12 pb-8">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col items-center justify-center text-center">
+            <div class="mb-6">
+                <span class="font-bold text-lg text-white">Distrito<span class="text-blue-500"> SLU</span></span>
+                <p class="text-slate-500 text-sm mt-1">Building software for the future.</p>
+            </div>
+            <!-- Removed Social/Mail Buttons entirely -->
+        </div>
+        <div class="text-center mt-4 text-slate-600 text-xs">
+            &copy; 2026 Distrito SLU. All rights reserved. Apple, the Apple logo, iPhone, and iPad are trademarks of Apple Inc.
+        </div>
+    </footer>
+
+    <!-- LEGAL MODAL OVERLAY -->
+    <!-- This section is hidden by default and overlays the screen when triggered -->
+    <div id="legal-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/95 backdrop-blur-sm transition-opacity" onclick="closeLegalModal()"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                
+                <!-- Modal Panel -->
+                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl glass-panel">
+                    
+                    <!-- Close Button -->
+                    <div class="absolute top-0 right-0 pt-4 pr-4 z-20">
+                        <button type="button" onclick="closeLegalModal()" class="rounded-md bg-transparent text-slate-400 hover:text-white focus:outline-none">
+                            <span class="sr-only">Close</span>
+                            <i class="fa-solid fa-xmark text-2xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Modal Content -->
+                    <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4 modal-scroll max-h-[85vh] overflow-y-auto">
+                        
+                        <!-- Tabs inside Modal -->
+                        <div class="flex border-b border-slate-700 mb-6">
+                            <button onclick="switchModalTab('privacy-tab')" id="modal-btn-privacy" class="flex-1 py-3 text-center font-medium text-blue-400 border-b-2 border-blue-500 transition-colors">
+                                Privacy Policy
+                            </button>
+                            <button onclick="switchModalTab('terms-tab')" id="modal-btn-terms" class="flex-1 py-3 text-center font-medium text-slate-400 hover:text-slate-200 transition-colors">
+                                Terms & Conditions
+                            </button>
+                        </div>
+
+                        <!-- Content Area -->
+                        <div class="text-slate-300 leading-relaxed text-sm md:text-base px-2">
+                            
+                            <!-- Privacy Policy Content -->
+                            <div id="privacy-tab" class="space-y-6 block">
+                                <div class="mb-6">
+                                    <h3 class="text-2xl font-bold text-white mb-1">Privacy Policy</h3>
+                                    <p class="text-xs text-slate-500">Last updated: January 19, 2026</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <!-- Legal Entity Section Added -->
+                                    <div class="bg-slate-800/80 p-4 rounded-lg border border-blue-500/30 mb-6">
+                                        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Legal Entity</h4>
+                                        <p class="text-xs text-slate-400 font-mono">
+                                            DISTRITO SLU<br>
+                                            Passatge de la Arnaldeta de Caboet 11, 6-3<br>
+                                            Escaldes Engordany, AD700<br>
+                                            Andorra<br>
+                                            N.R.T: L-718014-N
+                                        </p>
+                                    </div>
+
+                                    <h4 class="text-lg font-semibold text-blue-300">1. Overview</h4>
+                                    <p>
+                                        We respect your privacy. We do not collect, store, or share personally identifiable information (such as your name, address, or email) on our own servers. Our applications are designed to process data locally on your device whenever possible.
+                                    </p>
+
+                                    <h4 class="text-lg font-semibold text-blue-300">2. Third-Party Services</h4>
+                                    <p>
+                                        To maintain, improve, and monetize our applications, we use trusted third-party services. These services may collect certain technical data or anonymous identifiers:
+                                    </p>
+                                    
+                                    <ul class="list-none space-y-4 pl-0 mt-4">
+                                        <li class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
+                                            <strong class="text-white block mb-1"><i class="fa-brands fa-google text-yellow-500 mr-2"></i>Google Firebase</strong>
+                                            We use Firebase for Usage Analytics and Crashlytics. This helps us understand how the app is used and fix crashes. Data is anonymous and aggregated.
+                                        </li>
+                                        <li class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
+                                            <strong class="text-white block mb-1"><i class="fa-solid fa-rectangle-ad text-blue-500 mr-2"></i>Google AdMob</strong>
+                                            We display ads to support the free version of the app. AdMob may use your device's advertising identifier to show relevant (personalized) or generic ads, depending on your iOS App Tracking Transparency settings.
+                                        </li>
+                                        <li class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
+                                            <strong class="text-white block mb-1"><i class="fa-solid fa-receipt text-red-400 mr-2"></i>RevenueCat</strong>
+                                            We use RevenueCat to manage in-app subscriptions and purchases. RevenueCat processes anonymous purchase receipts generated by Apple to validate your "Premium" status. They do not have access to your banking information.
+                                        </li>
+                                    </ul>
+
+                                    <h4 class="text-lg font-semibold text-blue-300">3. Device Permissions</h4>
+                                    <p>
+                                        Our applications may request specific permissions (Camera, Photo Library, Notifications, Tracking). You can revoke these permissions at any time via your iPhone/iPad Settings.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Terms Content -->
+                            <div id="terms-tab" class="space-y-6 hidden">
+                                <div class="mb-6">
+                                    <h3 class="text-2xl font-bold text-white mb-1">Terms & Conditions</h3>
+                                    <p class="text-xs text-slate-500">Last updated: January 19, 2026</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <!-- Legal Entity Section Added -->
+                                    <div class="bg-slate-800/80 p-4 rounded-lg border border-blue-500/30 mb-6">
+                                        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Service Provider</h4>
+                                        <p class="text-xs text-slate-400 font-mono">
+                                            DISTRITO SLU<br>
+                                            Passatge de la Arnaldeta de Caboet 11, 6-3<br>
+                                            Escaldes Engordany, AD700<br>
+                                            Andorra<br>
+                                            N.R.T: L-718014-N
+                                        </p>
+                                    </div>
+
+                                    <h4 class="text-lg font-semibold text-blue-300">1. Acceptance of Terms</h4>
+                                    <p>
+                                        By downloading or using our applications, you automatically agree to these terms. If you do not agree with them, you should not use the application.
+                                    </p>
+
+                                    <h4 class="text-lg font-semibold text-blue-300">2. License</h4>
+                                    <p>
+                                        You are granted a limited, non-exclusive, non-transferable license to use the application on Apple devices that you own or control, in accordance with the App Store Usage Rules.
+                                    </p>
+
+                                    <h4 class="text-lg font-semibold text-blue-300">3. Purchases & Subscriptions</h4>
+                                    <p>
+                                        Subscriptions are managed via your Apple ID account. Payment will be charged to your Apple account upon confirmation of purchase. Subscriptions renew automatically unless auto-renew is turned off at least 24 hours before the end of the current period in your account settings.
+                                    </p>
+
+                                    <h4 class="text-lg font-semibold text-blue-300">4. Limitation of Liability</h4>
+                                    <p>
+                                        The application is provided "as is". We do not guarantee that the application will be error-free or uninterrupted. We are not liable for any data loss or indirect damages resulting from the use of the application.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic -->
+    <script>
+        // Modal Logic
+        function openLegalModal(tab) {
+            document.getElementById('legal-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Switch to requested tab immediately
+            if(tab === 'privacy') switchModalTab('privacy-tab');
+            if(tab === 'terms') switchModalTab('terms-tab');
+        }
+
+        function closeLegalModal() {
+            document.getElementById('legal-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function switchModalTab(tabId) {
+            // Hide all tabs
+            document.getElementById('privacy-tab').classList.add('hidden');
+            document.getElementById('terms-tab').classList.add('hidden');
+            
+            // Remove active styles
+            document.getElementById('modal-btn-privacy').classList.remove('text-blue-400', 'border-b-2', 'border-blue-500');
+            document.getElementById('modal-btn-terms').classList.remove('text-blue-400', 'border-b-2', 'border-blue-500');
+            document.getElementById('modal-btn-privacy').classList.add('text-slate-400');
+            document.getElementById('modal-btn-terms').classList.add('text-slate-400');
+
+            // Show selected tab
+            document.getElementById(tabId).classList.remove('hidden');
+            
+            // Add active styles
+            const activeBtn = tabId === 'privacy-tab' ? 'modal-btn-privacy' : 'modal-btn-terms';
+            document.getElementById(activeBtn).classList.remove('text-slate-400');
+            document.getElementById(activeBtn).classList.add('text-blue-400', 'border-b-2', 'border-blue-500');
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeLegalModal();
+            }
+        });
+    </script>
+</body>
+</html>
